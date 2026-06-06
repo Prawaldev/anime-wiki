@@ -1,0 +1,66 @@
+.infobox {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-wiki);
+  width: 320px;
+  position: sticky;
+  top: 80px;
+  padding: 2px;
+}
+
+.header {
+  background-color: var(--accent-cyan);
+  color: black;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.imageContainer {
+  padding: 1rem;
+  text-align: center;
+}
+
+.image {
+  max-width: 100%;
+  border: 1px solid var(--border-wiki);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table tr {
+  border-top: 1px solid var(--border-wiki);
+}
+
+.table th {
+  padding: 0.5rem;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.05);
+  width: 40%;
+}
+
+.table td {
+  padding: 0.5rem;
+}
+
+.footer {
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  font-size: 0.75rem;
+  display: flex;
+  alignItems: center;
+  gap: 0.25rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .infobox {
+    position: static;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}

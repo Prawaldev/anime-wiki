@@ -1,0 +1,29 @@
+.form {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-wiki);
+  borderRadius: 4px;
+  color: var(--text-primary);
+  font-family: inherit;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 1px var(--accent-cyan);
+}
+
+.icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}

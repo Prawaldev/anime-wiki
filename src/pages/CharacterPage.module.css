@@ -1,0 +1,47 @@
+.pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  position: relative;
+}
+
+.articleContent {
+  /* No specific styles needed yet, but good for structure */
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+}
+
+.list {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.externalLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .pageContainer {
+    grid-template-columns: 1fr;
+  }
+}
