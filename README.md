@@ -19,9 +19,6 @@ Search and explore anime characters with a dark, aesthetic UI inspired by Wikipe
 
 ## 🖼️ Preview
 
-> Add a screenshot here later  
-Example:
-
 <img src="site-preview.png">
 
 
