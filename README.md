@@ -1,73 +1,148 @@
-# React + TypeScript + Vite
+# 📚 Anime Wiki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, Wikipedia-style anime character encyclopedia built with React, Vite, and TypeScript.  
+Search and explore anime characters with a dark, aesthetic UI inspired by Wikipedia but redesigned for anime fans.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🔎 Fast character search
+- 📄 Wikipedia-style layout (infobox + article structure)
+- 🌙 Dark mode anime aesthetic
+- ⚡ Blazing fast Vite + React frontend
+- 📱 Responsive design (mobile + desktop)
+- 🧠 Dynamic data fetched from Jikan API (MyAnimeList)
+- 🎨 Clean typography using "Ubuntu Sans Mono"
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🖼️ Preview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> Add a screenshot here later  
+Example:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<img src="site-preview.png">
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Live Demo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+👉 https://prawaldev.github.io/anime-wiki/
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🛠️ Tech Stack
+
+- React
+- Vite
+- TypeScript
+- React Router
+- CSS Modules
+- Tailwind CSS (utility styling)
+- Axios
+- Jikan API (MyAnimeList data)
+
+---
+
+## 📦 Installation & Setup
+
+Clone the repo:
+
+```bash
+git clone https://github.com/Prawaldev/anime-wiki.git
+cd anime-wiki
+
+Install dependencies:
+
+npm install
+
+Run development server:
+
+npm run dev
+
+Build for production:
+
+npm run build
+
+Preview build:
+
+npm run preview
+
+🚀 Deployment
+
+This project is deployed using **GitHub Actions + GitHub Pages**.
+
+### ⚙️ How it works
+
+- Push changes to `main`
+- GitHub Actions automatically installs dependencies
+- Builds the project using Vite (`npm run build`)
+- Deploys the `dist/` folder to GitHub Pages
+
+### 🔁 Deployment Flow
+
+
+main branch → GitHub Actions → build → GitHub Pages → live site
+
+
+---
+
+### 🌐 Live Site
+
+👉 https://prawaldev.github.io/anime-wiki/
+
+---
+
+### 🛠️ GitHub Actions Workflow
+
+The workflow file is located at:
+
+
+.github/workflows/deploy.yml
+
+
+It automatically handles:
+
+- Node setup
+- Dependency installation
+- Build process
+- Deployment to GitHub Pages
+
+---
+
+### ❌ No manual deployment needed
+
+You do NOT need to run:
+
+```bash
+npm run deploy
+
+or use gh-pages anymore.
+
+---
+
+This project uses the Jikan API:
+
+https://jikan.moe/
+
+Used for:
+
+Character details
+Anime metadata
+Images
+Stats
+🎯 Future Improvements
+🔍 Advanced filtering (by anime, popularity, etc.)
+⭐ Favorites system
+🧾 More detailed character pages
+🎬 Anime pages (not just characters)
+🌐 Multi-language support
+🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first.
+
+👨‍💻 Author
+
+Built by Prawal Khadka
