@@ -1,28 +1,31 @@
 # 📚 Anime Wiki
 
-<img src="/public/anime-wiki.png">
+<p align="center">
+  <img src="./public/anime-wiki.png" alt="Anime Wiki Logo" width="800"/>
+</p>
 
-A modern, Wikipedia-style anime character encyclopedia built with React, Vite, and TypeScript.  
-Search and explore anime characters with a dark, aesthetic UI inspired by Wikipedia but redesigned for anime fans.
+A modern, Wikipedia-style anime character encyclopedia built with **React, Vite, and TypeScript**.  
+Search and explore anime characters with a dark, aesthetic UI inspired by Wikipedia, redesigned for anime fans.
 
 ---
 
 ## ✨ Features
 
 - 🔎 Fast character search
-- 📄 Wikipedia-style layout (infobox + article structure)
+- 📄 Wikipedia-style article layout (infobox + content structure)
 - 🌙 Dark mode anime aesthetic
 - ⚡ Blazing fast Vite + React frontend
-- 📱 Responsive design (mobile + desktop)
-- 🧠 Dynamic data fetched from Jikan API (MyAnimeList)
-- 🎨 Clean typography using "Ubuntu Sans Mono"
+- 📱 Fully responsive design (mobile + desktop)
+- 🧠 Dynamic data from Jikan API (MyAnimeList)
+- 🎨 Clean typography using **Ubuntu Sans Mono**
 
 ---
 
 ## 🖼️ Preview
 
-<img src="site-preview.png">
-
+<p align="center">
+  <img src="./site-preview.png" alt="Anime Wiki Preview" width="900"/>
+</p>
 
 ---
 
@@ -35,113 +38,39 @@ Search and explore anime characters with a dark, aesthetic UI inspired by Wikipe
 ## 🛠️ Tech Stack
 
 - React
-- Vite
-- TypeScript
+- :contentReference[oaicite:0]{index=0}
+- :contentReference[oaicite:1]{index=1}
 - React Router
 - CSS Modules
-- Tailwind CSS (utility styling)
+- Tailwind CSS
 - Axios
-- Jikan API (MyAnimeList data)
+- Jikan API (MyAnimeList)
 
 ---
 
-## 📦 Installation & Setup
+## 🌐 API Used
 
-Clone the repo:
-
-```bash
-git clone https://github.com/Prawaldev/anime-wiki.git
-cd anime-wiki
-
-Install dependencies:
-
-npm install
-
-Run development server:
-
-npm run dev
-
-Build for production:
-
-npm run build
-
-Preview build:
-
-npm run preview
-
-🚀 Deployment
-
-This project is deployed using **GitHub Actions + GitHub Pages**.
-
-### ⚙️ How it works
-
-- Push changes to `main`
-- GitHub Actions automatically installs dependencies
-- Builds the project using Vite (`npm run build`)
-- Deploys the `dist/` folder to GitHub Pages
-
-### 🔁 Deployment Flow
-
-
-main branch → GitHub Actions → build → GitHub Pages → live site
-
-
----
-
-### 🌐 Live Site
-
-👉 https://prawaldev.github.io/anime-wiki/
-
----
-
-### 🛠️ GitHub Actions Workflow
-
-The workflow file is located at:
-
-
-.github/workflows/deploy.yml
-
-
-It automatically handles:
-
-- Node setup
-- Dependency installation
-- Build process
-- Deployment to GitHub Pages
-
----
-
-### ❌ No manual deployment needed
-
-You do NOT need to run:
-
-```bash
-npm run deploy
-
-or use gh-pages anymore.
-
----
-
-This project uses the Jikan API:
-
-https://jikan.moe/
+This project uses the **Jikan API**:  
+👉 https://jikan.moe/
 
 Used for:
+- Anime character details
+- Anime metadata
+- Images
+- Statistics
 
-Character details
-Anime metadata
-Images
-Stats
-🎯 Future Improvements
-🔍 Advanced filtering (by anime, popularity, etc.)
-⭐ Favorites system
-🧾 More detailed character pages
-🎬 Anime pages (not just characters)
-🌐 Multi-language support
-🤝 Contributing
+---
 
-Pull requests are welcome. For major changes, please open an issue first.
+## 🎯 Future Improvements
 
-👨‍💻 Author
+- 🔍 Advanced filtering (by anime, popularity, etc.)
+- ⭐ Favorites system
+- 🧾 More detailed character pages
+- 🎬 Anime pages (not just characters)
+- 🌐 Multi-language support
 
-Built by Prawal Khadka
+---
+
+## 👨‍💻 Author
+
+Built with ❤️ by **Prawal Khadka**
