@@ -1,5 +1,7 @@
 # 📚 Anime Wiki
 
+<img src="/public/anime-wiki.png">
+
 A modern, Wikipedia-style anime character encyclopedia built with React, Vite, and TypeScript.  
 Search and explore anime characters with a dark, aesthetic UI inspired by Wikipedia but redesigned for anime fans.
 
