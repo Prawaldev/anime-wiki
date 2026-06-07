@@ -38,8 +38,8 @@ Search and explore anime characters with a dark, aesthetic UI inspired by Wikipe
 ## 🛠️ Tech Stack
 
 - React
-- :contentReference[oaicite:0]{index=0}
-- :contentReference[oaicite:1]{index=1}
+- Vite 
+- TypeScript
 - React Router
 - CSS Modules
 - Tailwind CSS
