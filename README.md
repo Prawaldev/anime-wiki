@@ -50,7 +50,6 @@ Search and explore anime characters and anime series with a dark, aesthetic UI i
 - Axios
 - Jikan API (MyAnimeList)
 - Wikipedia API (for biography enhancement)
-- Kitsu API (for metadata enrichment)
 
 ---
 
@@ -59,7 +58,6 @@ Search and explore anime characters and anime series with a dark, aesthetic UI i
 This project aggregates data from:
 - **Jikan API (MyAnimeList):** Primary source for all core data.
 - **Wikipedia API:** Optional fallback for enhanced biography details.
-- **Kitsu API:** Metadata enrichment (IDs, popularity).
 
 ---
 
