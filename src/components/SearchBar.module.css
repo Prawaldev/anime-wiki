@@ -1,18 +1,23 @@
 .form {
-  flex: 1;
-  max-width: 500px;
+  flex: 1 1 auto;
+  min-width: 80px;
+  max-width: 150px;
+  margin: 0 0.5rem;
   position: relative;
 }
 
 .input {
   width: 100%;
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  padding: 0.3rem 0.5rem;
   background-color: var(--bg-primary);
   border: 1px solid var(--border-wiki);
-  borderRadius: 4px;
+  border-radius: 4px;
   color: var(--text-primary);
   font-family: inherit;
-  outline: none;
+  font-size: 0.85rem;
+  outline: 0;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .input:focus {

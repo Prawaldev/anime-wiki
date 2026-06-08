@@ -16,9 +16,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
-body {
+body, button, input, select, textarea {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: "Ubuntu Sans Mono", monospace;
@@ -27,9 +28,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, p, th, td, a {
+  font-family: "Ubuntu Sans Mono", monospace;
+}
+
 a {
   color: var(--link-color);
   text-decoration: none;
+  word-break: break-all;
 }
 
 a:hover {
@@ -49,22 +55,40 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-bottom: 1px solid var(--border-wiki);
   padding-bottom: 0.5rem;
 }
 
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-bottom: 1px solid var(--border-wiki);
   padding-bottom: 0.3rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
 }
 
 /* Custom Scrollbar */

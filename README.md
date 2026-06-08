@@ -5,18 +5,22 @@
 </p>
 
 A modern, Wikipedia-style anime character encyclopedia built with **React, Vite, and TypeScript**.  
-Search and explore anime characters with a dark, aesthetic UI inspired by Wikipedia, redesigned for anime fans.
+Search and explore anime characters and series with a dark, aesthetic UI inspired by Wikipedia, redesigned for anime fans.
 
 ---
 
 ## ✨ Features
 
-- 🔎 Fast character search
+- 🔎 Fast character and anime search (powered by Jikan API)
 - 📄 Wikipedia-style article layout (infobox + content structure)
 - 🌙 Dark mode anime aesthetic
 - ⚡ Blazing fast Vite + React frontend
-- 📱 Fully responsive design (mobile + desktop)
-- 🧠 Dynamic data from Jikan API (MyAnimeList)
+- 📱 Fully responsive design (mobile-optimized with hamburger menu)
+- 🧠 Data-rich content:
+    - Character bios (Jikan + optional Wikipedia fallback)
+    - Anime synopses
+    - Voice actors, appearances, and related characters
+    - Metadata: MAL IDs, Kitsu IDs, and favorite statistics
 - 🎨 Clean typography using **Ubuntu Sans Mono**
 
 ---
@@ -45,29 +49,26 @@ Search and explore anime characters with a dark, aesthetic UI inspired by Wikipe
 - Tailwind CSS
 - Axios
 - Jikan API (MyAnimeList)
+- Wikipedia API (for biography enhancement)
+- Kitsu API (for metadata enrichment)
 
 ---
 
-## 🌐 API Used
+## 🌐 APIs Used
 
-This project uses the **Jikan API**:  
-👉 https://jikan.moe/
-
-Used for:
-- Anime character details
-- Anime metadata
-- Images
-- Statistics
+This project aggregates data from:
+- **Jikan API (MyAnimeList):** Primary source for all core data.
+- **Wikipedia API:** Optional fallback for enhanced biography details.
+- **Kitsu API:** Metadata enrichment (IDs, popularity).
 
 ---
 
 ## 🎯 Future Improvements
 
-- 🔍 Advanced filtering (by anime, popularity, etc.)
-- ⭐ Favorites system
-- 🧾 More detailed character pages
-- 🎬 Anime pages (not just characters)
-- 🌐 Multi-language support
+- 🔍 Advanced filtering (by genre, studio, etc.)
+- ⭐ Personalized favorites/watchlist system
+- 📱 Expanded mobile performance optimizations
+- 🌐 Multi-language support for metadata
 
 ---
 
