@@ -5,7 +5,7 @@
 </p>
 
 A modern, Wikipedia-style anime character encyclopedia built with **React, Vite, and TypeScript**.  
-Search and explore anime characters and series with a dark, aesthetic UI inspired by Wikipedia, redesigned for anime fans.
+Search and explore anime characters and anime series with a dark, aesthetic UI inspired by Wikipedia, redesigned for anime fans.
 
 ---
 
