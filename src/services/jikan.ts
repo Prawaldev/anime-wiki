@@ -208,3 +208,4 @@ export const getTopAnime = jikan.getTopAnime;
 export const getTopCharacters = jikan.getTopCharacters;
 export const searchAnime = jikan.searchAnime;
 export const searchCharacters = jikan.searchCharacters;
+

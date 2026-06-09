@@ -209,3 +209,4 @@ const CharacterPage: React.FC = () => {
 };
 
 export default CharacterPage;
+
