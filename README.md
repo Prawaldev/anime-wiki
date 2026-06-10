@@ -1,4 +1,4 @@
-# 📚 Anime Wiki
+# <img src="/public/favicon.ico"> Anime Wiki[Website & APK]
 
 <p align="center">
   <img src="./public/anime-wiki.png" alt="Anime Wiki Logo" width="800"/>
