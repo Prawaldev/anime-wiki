@@ -16,6 +16,12 @@ Browse trending anime, search characters and series, and explore detailed info i
 
 ---
 
+## Site Preview
+
+<img src="site-preview.png">
+
+---
+
 ## Tech Stack
 
 | Layer | |
