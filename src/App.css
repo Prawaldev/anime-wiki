@@ -49,6 +49,14 @@ header {
   font-weight: 700;
   font-size: 1.5em;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.logo-icon {
+  height: 1.35em;
+  width: auto;
 }
 
 .search-form {

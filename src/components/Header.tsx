@@ -17,6 +17,7 @@ export default function Header({ onSearch, onHome }: Props) {
     <header>
       <div className="header-inner">
         <a href="#" className="logo" onClick={onHome}>
+          <img src="/ic_launcher.png" alt="" className="logo-icon" />
           AniWiki
         </a>
         <form className="search-form" onSubmit={handleSubmit}>
