@@ -46,4 +46,4 @@ Browse trending anime, search characters and series, and explore detailed info i
 
 ## Author
 
-Built by **Prawal Khadka**
+Built by **Prawaldev**
