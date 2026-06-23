@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react'
 import type { Character, Picture } from '../utils/types'
 import { getCharacter, getCharacterAnime, getCharacterVoices, getCharacterPictures } from '../utils/api'
-import { getWikipediaSummary } from '../utils/wikipedia'
+import { getSeiyuuSummary } from '../utils/seiyuubase'
 import { stripHtml } from '../utils/helpers'
 import Loader from './Loader'
 
-interface VAWiki {
+interface VASeiyuu {
   name: string
   language: string
   img: string
-  wikiTitle: string | null
-  wikiExtract: string | null
-  wikiUrl: string | null
+  description: string | null
+  url: string | null
   loading: boolean
 }
 
@@ -26,7 +25,7 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
   const [animeAppearances, setAnimeAppearances] = useState<{ role: string; anime: { mal_id: number; title: string; images: { jpg: { image_url: string } } } }[]>([])
   const [voices, setVoices] = useState<{ person: { name: string; images: { jpg: { image_url: string } } }; language: string }[]>([])
   const [pictures, setPictures] = useState<Picture[]>([])
-  const [vaWiki, setVaWiki] = useState<VAWiki[]>([])
+  const [vaSeiyuu, setVaSeiyuu] = useState<VASeiyuu[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -66,24 +65,22 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
           name: v.person.name,
           language: v.language,
           img: v.person.images?.jpg?.image_url || '',
-          wikiTitle: null,
-          wikiExtract: null,
-          wikiUrl: null,
+          description: null,
+          url: null,
           loading: true,
         }))
-        setVaWiki(initial)
+        setVaSeiyuu(initial)
 
         for (let i = 0; i < voicesData.length; i++) {
           const v = voicesData[i]
-          const summary = await getWikipediaSummary(v.person.name)
+          const data = await getSeiyuuSummary(v.person.name)
           if (cancelled) return
-          setVaWiki(prev => {
+          setVaSeiyuu(prev => {
             const next = [...prev]
             next[i] = {
               ...next[i],
-              wikiTitle: summary?.title ?? null,
-              wikiExtract: summary?.extract ?? null,
-              wikiUrl: summary?.content_urls?.desktop?.page ?? null,
+              description: data?.description ?? null,
+              url: data?.url ?? null,
               loading: false,
             }
             return next
@@ -164,19 +161,19 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
                     <p className="subtitle"><strong>Language:</strong> {v.language}</p>
                   </div>
                 </div>
-                {vaWiki[i]?.loading && <p className="va-wiki-loading">Loading Wikipedia data...</p>}
-                {vaWiki[i]?.wikiExtract && !vaWiki[i]?.loading && (
+                {vaSeiyuu[i]?.loading && <p className="va-wiki-loading">Loading SeiyuuBase data...</p>}
+                {vaSeiyuu[i]?.description && !vaSeiyuu[i]?.loading && (
                   <div className="va-wiki">
-                    <p>{vaWiki[i].wikiExtract!.slice(0, 600)}{vaWiki[i].wikiExtract!.length > 600 ? '...' : ''}</p>
-                    {vaWiki[i].wikiUrl && (
-                      <a href={vaWiki[i].wikiUrl!} target="_blank" rel="noopener noreferrer" className="va-wiki-link">
-                        Read more on Wikipedia &rarr;
+                    <p>{vaSeiyuu[i].description!.slice(0, 600)}{vaSeiyuu[i].description!.length > 600 ? '...' : ''}</p>
+                    {vaSeiyuu[i].url && (
+                      <a href={vaSeiyuu[i].url!} target="_blank" rel="noopener noreferrer" className="va-wiki-link">
+                        Read more on SeiyuuBase &rarr;
                       </a>
                     )}
                   </div>
                 )}
-                {!vaWiki[i]?.wikiExtract && !vaWiki[i]?.loading && (
-                  <p className="va-wiki-none">No Wikipedia entry found.</p>
+                {!vaSeiyuu[i]?.description && !vaSeiyuu[i]?.loading && (
+                  <p className="va-wiki-none">No SeiyuuBase entry found.</p>
                 )}
               </div>
             ))}

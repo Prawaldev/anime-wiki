@@ -16,7 +16,7 @@ export default function Header({ onSearch, onHome }: Props) {
   return (
     <header>
       <div className="header-inner">
-        <a href="#" className="logo" onClick={onHome}>
+        <a href="/" className="logo" onClick={onHome}>
           <img src={import.meta.env.BASE_URL + "ic_launcher.png"} alt="" className="logo-icon" />
           AniWiki
         </a>
