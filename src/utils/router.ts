@@ -11,17 +11,19 @@ export interface RouteState {
 export function parseRoute(): RouteState {
   const { pathname, search } = window.location
 
-  if (pathname.startsWith('/anime/')) {
-    const id = parseInt(pathname.split('/')[2], 10)
+  const path = pathname.startsWith(BASE) ? '/' + pathname.slice(BASE.length) : pathname
+
+  if (path.startsWith('/anime/')) {
+    const id = parseInt(path.split('/')[2], 10)
     return { view: 'anime', animeId: isNaN(id) ? undefined : id }
   }
 
-  if (pathname.startsWith('/character/')) {
-    const id = parseInt(pathname.split('/')[2], 10)
+  if (path.startsWith('/character/')) {
+    const id = parseInt(path.split('/')[2], 10)
     return { view: 'character', characterId: isNaN(id) ? undefined : id }
   }
 
-  if (pathname.startsWith('/search')) {
+  if (path.startsWith('/search')) {
     const q = new URLSearchParams(search).get('q')
     return { view: 'search', query: q || undefined }
   }
