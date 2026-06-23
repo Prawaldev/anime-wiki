@@ -1,5 +1,6 @@
 import type { View } from './types'
 
+const BASE = import.meta.env.BASE_URL
 export interface RouteState {
   view: View
   query?: string
@@ -31,12 +32,15 @@ export function parseRoute(): RouteState {
 export function routeToPath(state: RouteState): string {
   switch (state.view) {
     case 'home':
-      return '/'
+      return BASE
     case 'search':
-      return `/search?q=${encodeURIComponent(state.query || '')}`
+      return `${BASE}search?q=${encodeURIComponent(state.query || '')}`
     case 'anime':
-      return `/anime/${state.animeId}`
+      return `${BASE}anime/${state.animeId}`
     case 'character':
-      return `/character/${state.characterId}`
+      return `${BASE}character/${state.characterId}`
+
+      default:
+        return `${BASE}`
   }
 }
