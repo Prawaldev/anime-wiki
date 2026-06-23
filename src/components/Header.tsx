@@ -33,4 +33,4 @@ export default function Header({ onSearch, onHome }: Props) {
       </div>
     </header>
   )
-}
+}useState
