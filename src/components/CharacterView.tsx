@@ -27,11 +27,13 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
   const [pictures, setPictures] = useState<Picture[]>([])
   const [vaSeiyuu, setVaSeiyuu] = useState<VASeiyuu[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     async function load() {
       setLoading(true)
+      setError(null)
 
       let voicesData: { person: { name: string; images: { jpg: { image_url: string } } }; language: string }[] = []
 
@@ -39,8 +41,11 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
         const charRes = await getCharacter(id)
         if (cancelled) return
         setCharacter(charRes.data)
-      } catch {
-        if (!cancelled) setCharacter(null)
+      } catch (e) {
+        if (!cancelled) {
+          setCharacter(null)
+          setError(e instanceof Error ? e.message : 'Failed to load character details.')
+        }
       }
 
       try {
@@ -93,6 +98,7 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
   }, [id])
 
   if (loading) return <Loader />
+  if (error) return <div className="error-banner"><p>{error}</p></div>
   if (!character) return <p>Failed to load character details.</p>
 
   const charImg = character.images.jpg.large_image_url || character.images.jpg.image_url

@@ -18,11 +18,13 @@ export default function SearchView({ query, onAnimeClick, onCharacterClick }: Pr
   const [charResults, setCharResults] = useState<Character[]>([])
   const [tab, setTab] = useState<Tab>('anime')
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     async function search() {
       setLoading(true)
+      setError(null)
       try {
         const animeRes = await searchAnime(query)
         if (cancelled) return
@@ -31,10 +33,11 @@ export default function SearchView({ query, onAnimeClick, onCharacterClick }: Pr
         const charRes = await searchCharacters(query)
         if (cancelled) return
         setCharResults(charRes.data)
-      } catch {
+      } catch (e) {
         if (!cancelled) {
           setAnimeResults([])
           setCharResults([])
+          setError(e instanceof Error ? e.message : 'Search failed.')
         }
       } finally {
         if (!cancelled) setLoading(false)
@@ -67,6 +70,10 @@ export default function SearchView({ query, onAnimeClick, onCharacterClick }: Pr
 
       {loading ? (
         <Loader />
+      ) : error ? (
+        <div className="error-banner">
+          <p>{error}</p>
+        </div>
       ) : tab === 'anime' ? (
         <div className="card-grid">
           {animeResults.map(a => (

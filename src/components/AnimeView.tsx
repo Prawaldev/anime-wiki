@@ -17,17 +17,22 @@ export default function AnimeView({ id, onBack, onCharacterClick, onAnimeClick }
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [pictures, setPictures] = useState<Picture[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     async function load() {
       setLoading(true)
+      setError(null)
       try {
         const animeRes = await getAnimeFull(id)
         if (cancelled) return
         setAnime(animeRes.data)
-      } catch {
-        if (!cancelled) setAnime(null)
+      } catch (e) {
+        if (!cancelled) {
+          setAnime(null)
+          setError(e instanceof Error ? e.message : 'Failed to load anime details.')
+        }
       }
 
       try {
@@ -51,6 +56,7 @@ export default function AnimeView({ id, onBack, onCharacterClick, onAnimeClick }
   }, [id])
 
   if (loading) return <Loader />
+  if (error) return <div className="error-banner"><p>{error}</p></div>
   if (!anime) return <p>Failed to load anime details.</p>
 
   const {
