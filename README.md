@@ -1,4 +1,4 @@
-# <img src="/public/ic_launcher.png" width="28" style="vertical-align: middle;"> Anime Wiki
+# <img src="/public/favicon.ico" width="28" style="vertical-align: middle;"> Anime Wiki
 
  Currently the site is facing error ["status": 504],A Wikipedia-style anime encyclopedia built with **React, Vite, and TypeScript**.  
 Browse trending anime, search characters and series, and explore detailed info including voice actors with Wikipedia-powered bios.

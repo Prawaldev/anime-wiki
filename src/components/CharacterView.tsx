@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { Character, Picture } from '../utils/types'
 import { getCharacter, getCharacterAnime, getCharacterVoices, getCharacterPictures } from '../utils/api'
+import { useProviderVersion } from '../utils/useProvider'
 import { getSeiyuuSummary } from '../utils/seiyuubase'
 import { stripHtml } from '../utils/helpers'
 import Loader from './Loader'
@@ -28,12 +29,18 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
   const [vaSeiyuu, setVaSeiyuu] = useState<VASeiyuu[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const providerVersion = useProviderVersion()
 
   useEffect(() => {
     let cancelled = false
     async function load() {
       setLoading(true)
       setError(null)
+
+      setAnimeAppearances([])
+      setVoices([])
+      setPictures([])
+      setVaSeiyuu([])
 
       let voicesData: { person: { name: string; images: { jpg: { image_url: string } } }; language: string }[] = []
 
@@ -95,7 +102,7 @@ export default function CharacterView({ id, onBack, onAnimeClick }: Props) {
     }
     load()
     return () => { cancelled = true }
-  }, [id])
+  }, [id, providerVersion])
 
   if (loading) return <Loader />
   if (error) return <div className="error-banner"><p>{error}</p></div>

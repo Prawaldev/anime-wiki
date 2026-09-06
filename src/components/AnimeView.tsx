@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { Anime, AnimeCharacter, Recommendation, Picture } from '../utils/types'
 import { getAnimeFull, getAnimeCharacters, getAnimeRecommendations, getAnimePictures } from '../utils/api'
+import { useProviderVersion } from '../utils/useProvider'
 import { stripHtml } from '../utils/helpers'
 import Loader from './Loader'
 
@@ -18,6 +19,7 @@ export default function AnimeView({ id, onBack, onCharacterClick, onAnimeClick }
   const [pictures, setPictures] = useState<Picture[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const providerVersion = useProviderVersion()
 
   useEffect(() => {
     let cancelled = false
@@ -53,7 +55,7 @@ export default function AnimeView({ id, onBack, onCharacterClick, onAnimeClick }
     }
     load()
     return () => { cancelled = true }
-  }, [id])
+  }, [id, providerVersion])
 
   if (loading) return <Loader />
   if (error) return <div className="error-banner"><p>{error}</p></div>

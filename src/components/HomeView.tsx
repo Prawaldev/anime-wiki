@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { Anime, Character } from '../utils/types'
 import { getTopAnime, getRandomCharacterCached } from '../utils/api'
+import { useProviderVersion } from '../utils/useProvider'
 import AnimeCard from './AnimeCard'
 import Loader from './Loader'
 
@@ -14,18 +15,27 @@ export default function HomeView({ onAnimeClick, onCharacterClick }: Props) {
   const [featured, setFeatured] = useState<Character | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const providerVersion = useProviderVersion()
 
   useEffect(() => {
     let cancelled = false
     async function load() {
+      setLoading(true)
+      setError(null)
+      setTrending([])
+      setFeatured(null)
       try {
         const topRes = await getTopAnime()
         if (cancelled) return
         setTrending(topRes.data)
 
-        const charRes = await getRandomCharacterCached()
-        if (cancelled) return
-        setFeatured(charRes.data)
+        try {
+          const charRes = await getRandomCharacterCached()
+          if (cancelled) return
+          setFeatured(charRes.data)
+        } catch {
+          // featured character is optional
+        }
       } catch (e) {
         if (!cancelled) {
           setError(e instanceof Error ? e.message : 'Failed to load data.')
@@ -36,7 +46,7 @@ export default function HomeView({ onAnimeClick, onCharacterClick }: Props) {
     }
     load()
     return () => { cancelled = true }
-  }, [])
+  }, [providerVersion])
 
   if (loading) return <Loader />
 

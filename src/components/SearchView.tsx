@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { Anime, Character } from '../utils/types'
 import { searchAnime, searchCharacters } from '../utils/api'
+import { useProviderVersion } from '../utils/useProvider'
 import AnimeCard from './AnimeCard'
 import CharacterCard from './CharacterCard'
 import Loader from './Loader'
@@ -19,12 +20,15 @@ export default function SearchView({ query, onAnimeClick, onCharacterClick }: Pr
   const [tab, setTab] = useState<Tab>('anime')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const providerVersion = useProviderVersion()
 
   useEffect(() => {
     let cancelled = false
     async function search() {
       setLoading(true)
       setError(null)
+      setAnimeResults([])
+      setCharResults([])
       try {
         const animeRes = await searchAnime(query)
         if (cancelled) return
@@ -45,7 +49,7 @@ export default function SearchView({ query, onAnimeClick, onCharacterClick }: Pr
     }
     search()
     return () => { cancelled = true }
-  }, [query])
+  }, [query, providerVersion])
 
   return (
     <>

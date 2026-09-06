@@ -5,6 +5,7 @@ import HomeView from './components/HomeView'
 import SearchView from './components/SearchView'
 import AnimeView from './components/AnimeView'
 import CharacterView from './components/CharacterView'
+import ErrorPopup from './components/ErrorPopup'
 
 function initialState(): RouteState {
   const route = parseRoute()
@@ -68,6 +69,7 @@ export default function App() {
           {view === 'character' && <CharacterView id={characterId!} onBack={goBack} onAnimeClick={openAnime} />}
         </div>
       </main>
+      <ErrorPopup />
     </>
   )
 }

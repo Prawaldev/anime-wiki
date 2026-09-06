@@ -1,0 +1,27 @@
+{
+  "name": "AniWiki",
+  "short_name": "AniWiki",
+  "description": "The open anime encyclopedia",
+  "start_url": "/anime-wiki/",
+  "display": "standalone",
+  "background_color": "#e4e6eb",
+  "theme_color": "#2e51a2",
+  "icons": [
+    {
+      "src": "/anime-wiki/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/anime-wiki/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/anime-wiki/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import ApiSwitcher from './ApiSwitcher'
 
 interface Props {
   onSearch: (query: string) => void
@@ -17,7 +18,7 @@ export default function Header({ onSearch, onHome }: Props) {
     <header>
       <div className="header-inner">
         <a href="/" className="logo" onClick={onHome}>
-          <img src={import.meta.env.BASE_URL + "ic_launcher.png"} alt="" className="logo-icon" />
+          <img src={import.meta.env.BASE_URL + "favicon-32x32.png"} alt="" className="logo-icon" />
           AniWiki
         </a>
         <form className="search-form" onSubmit={handleSubmit}>
@@ -30,6 +31,7 @@ export default function Header({ onSearch, onHome }: Props) {
           />
           <button type="submit">Search</button>
         </form>
+        <ApiSwitcher />
       </div>
     </header>
   )
